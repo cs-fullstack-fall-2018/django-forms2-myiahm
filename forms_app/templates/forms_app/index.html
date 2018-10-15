@@ -4,10 +4,23 @@
 <div class="jumbotron">
 	<p>This is the forms app</p>
 </div>
+<div class="container">
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" class="btn btn-primary" value="Submit">
+	</form>
+</div>
+
 	{% if form_list %}
 		<ul>
 			{% for eachItem in form_list %}
 				<li>{{ eachItem.name }}</li>
+			    <li>{{ eachItem.recipe}}</li>
+			    <li>{{ eachItem.timeCook}}</li>
+			    <li>{{ eachItem.dateCreated}}</li>
+
+
 			{% endfor %}
 		</ul>
 		{% else %}
