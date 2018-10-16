@@ -1,9 +1,11 @@
 from django import forms
 from datetime import datetime
+from .models import FormModel
 
 
 
-class Formmodel(forms.Form):
-    name = forms.CharField()
-    recipe = forms.CharField()
-    timeCook = forms.IntegerField()
+class Form(forms.ModelForm):
+    class Meta:
+        model = FormModel
+        fields = ('name', 'recipe','timeCook')
+
